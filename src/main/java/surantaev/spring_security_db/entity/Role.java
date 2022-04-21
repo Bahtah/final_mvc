@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "roles")
+@Table(name = "roles", schema = "security_mvc", catalog = "postgres")
 public class Role {
 
     @Id
