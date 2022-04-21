@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+
+<div class="container">
+    <div align="center">
+
+        <div sec:authorize="isAuthenticated()">
+            Welcome <b><span sec:authentication="name"></span></b>
+            <i><span sec:authenticated="principal.authorities">Role</span></i>
+        </div>
+        <br>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout">
+        </form>
+        
+        <h1>Product List</h1>
+        <a href="/new">Create new Product</a>
+        <br>
+        <br>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Made in</th>
+                <th>Price</th>
+                <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product: ${productList}">
+                    <td th:text="${product.id}">ID</td>
+                    <td th:text="${product.name}">Name</td>
+                    <td th:text="${product.brand}">Brand</td>
+                    <td th:text="${product.madeIn}">MadeIn</td>
+                    <td th:text="${product.price}">Price</td>
+                    <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+                        <a th:href="@{'/edit/'+${product.id}}">EDIT</a>
+                        <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/delete/'+${product.id}}">DELETE</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
