@@ -1,4 +1,4 @@
-package surantaev.spring_security_db.entity;
+package surantaev.spring_security_db.entity.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

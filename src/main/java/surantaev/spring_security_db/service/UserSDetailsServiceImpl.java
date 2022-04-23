@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import surantaev.spring_security_db.entity.MyUser;
-import surantaev.spring_security_db.entity.User;
+import surantaev.spring_security_db.entity.user.MyUser;
+import surantaev.spring_security_db.entity.user.User;
 import surantaev.spring_security_db.repo.UserRepository;
 
 public class UserSDetailsServiceImpl implements UserDetailsService {

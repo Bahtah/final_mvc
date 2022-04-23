@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Курсы</title>
+</head>
+<body>
+
+<div class="container">
+    <div align="center">
+
+        <div sec:authorize="isAuthenticated()">
+            Добро пожаловать <b><span sec:authentication="name"></span></b>
+            <i><span sec:authenticated="principal.authorities">Role</span></i>
+        </div>
+        <br>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Выйти">
+        </form>
+
+        <h1>Курсы</h1>
+        <a href="/course/new">Создать курс</a>
+        <br>
+        <br>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Продолжительность</th>
+                <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Операции</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course: ${course}">
+                <td th:text="${course.id}">ID</td>
+                <td th:text="${course.courseName}"></td>
+                <td th:text="${course.duration}"></td>
+                <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+                    <a th:href="@{'course/edit/'+${course.id}}">Редактировать</a>
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'course/delete/'+${course.id}}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+</body>
+</html>

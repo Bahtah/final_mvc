@@ -1,4 +1,4 @@
-package surantaev.spring_security_db.entity;
+package surantaev.spring_security_db.entity.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,14 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "product", schema = "security_mvc", catalog = "postgres")
-public class Product {
+@Table(name = "roles", schema = "security_mvc", catalog = "postgres")
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "_id")
     private Long id;
-    private String name;
-    private String brand;
-    private String madeIn;
-    private double price;
+    private String userName;
+
 }

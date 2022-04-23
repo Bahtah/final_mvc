@@ -1,4 +1,4 @@
-package surantaev.spring_security_db.entity;
+package surantaev.spring_security_db.entity.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
