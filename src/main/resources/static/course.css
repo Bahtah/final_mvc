@@ -1,0 +1,32 @@
+body {
+    background-color: #331e03;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.autoris span{
+    font-size: 22px;
+    color: #eadada;
+    font-weight: bold;
+}
+
+.autoris h1 {
+    color: #fff;
+}
+
+table {
+    background-color: #fff;
+}
+
+.course_title {
+    color: #fff;
+}
+
+.course_link a {
+    color: #9898e0;
+    text-transform: uppercase;
+    text-decoration: none;
+}

@@ -10,22 +10,22 @@
     <div align="center">
         <h1>Edit Course</h1>
         <br>
-        <form action="#" th:action="@{/save}" th:object="${course}" method="post">
+        <form action="#" th:action="@{/course/edit}" th:object="${course1}" th:method="post">
             <table border="0" cellpadding="10">
                 <tr>
-                    <td>Course Id</td>
-                    <td><input type="text" th:field="*{id}" readonly="readonly"></td>
+                    <!--<td>Course Id</td>-->
+                    <td><input type="text" th:field="*{id}" hidden readonly="readonly"></td>
                 </tr>
                 <tr>
-                    <td>Company Name</td>
+                    <td>Course Name</td>
                     <td><input type="text" th:field="*{courseName}"></td>
                 </tr>
                 <tr>
-                    <td>Located Country</td>
+                    <td>duration</td>
                     <td><input type="text" th:field="*{duration}"></td>
                 </tr>
                 <tr>
-                    <td>Course id</td>
+                    <td>company id</td>
                     <td><input type="text" th:field="*{company}"></td>
                 </tr>
                 <tr>

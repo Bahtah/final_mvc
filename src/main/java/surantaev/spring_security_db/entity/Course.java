@@ -26,7 +26,7 @@ public class Course {
     private int duration;
 
     //Связь с таблицой Company
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     private Company company;

@@ -14,41 +14,47 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("course/")
 public class CourseController {
 
     private final CourseService courseService;
 
-    @RequestMapping("/course")
+    @GetMapping()
     public String homeCourse(Model model) {
         List<Course> courses = courseService.getAllCourse();
         model.addAttribute("course", courses);
         return "coursePackage/course_page";
     }
 
-    @RequestMapping("course/new")
+    @GetMapping("/new")
     public String showNewPage(Model model) {
         Course course = new Course();
         model.addAttribute("course", course);
         return "coursePackage/new_course";
     }
 
-    @RequestMapping(value = "course/save", method = RequestMethod.POST)
+    @PostMapping("course/save")
     public String saveCourse(@ModelAttribute("course") Course course) {
         courseService.save(course);
-        return "redirect:/course";
+        return "redirect:/course/";
     }
 
-    @RequestMapping("course/edit/{id}")
-    public ModelAndView showEditPage(@PathVariable(name = "id") Long id) {
-        ModelAndView view = new ModelAndView("coursePackage/edit_course");
+    @GetMapping("course/edit/{id}")
+    public String showEditPage(@PathVariable("id") Long id, Model model) {
         Course course = courseService.getById(id);
-        view.addObject("course", course);
-        return view;
+        model.addAttribute("course1", course);
+        return "coursePackage/edit_course";
+    }
+
+    @PostMapping("/edit")
+    public String updateUser(@ModelAttribute("course1") Course course){
+        courseService.save(course);
+        return "redirect:/course/";
     }
 
     @RequestMapping("course/delete/{id}")
-    public String deleteCourse(@PathVariable(name = "id") Long id) {
+    public String deleteCourse(@PathVariable("id") Long id) {
         courseService.delete(id);
-        return "redirect:/course";
+        return "redirect:/course/";
     }
 }

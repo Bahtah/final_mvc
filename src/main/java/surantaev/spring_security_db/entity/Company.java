@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +23,7 @@ public class Company {
     @Column(name = "located_country")
     private String locatedCountry;
 
-    //Связь с таблицой Course
+/*    //Связь с таблицой Course
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Course> course;
+    private List<Course> course;*/
 }

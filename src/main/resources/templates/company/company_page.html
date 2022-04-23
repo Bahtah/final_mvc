@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Company</title>
+    <link rel="stylesheet" th:href="@{/company.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
 
-        <div sec:authorize="isAuthenticated()">
-            Добро пожаловать <b><span sec:authentication="name"></span></b>
+        <div class="autoris" sec:authorize="isAuthenticated()">
+            <h1>Добро пожаловать</h1> <span sec:authentication="name"></span>
             <i><span sec:authenticated="principal.authorities">Role</span></i>
         </div>
+
         <br>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Выйти">
         </form>
 
-        <h1>Компании</h1>
-        <a href="/new">Создать Компанию</a>
+        <h1 class="company_title">Компании</h1>
+        <hr>
+        <h3 class="company_link"><a href="/new">Создать Компанию</a></h3>
         <br>
         <br>
         <table border="1" cellpadding="10">
@@ -40,12 +43,13 @@
                 <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
                     <a th:href="@{'/edit/'+${company.id}}">Редактировать</a>
                     <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/delete/'+${company.id}}">Удалить</a>
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/delete/'+${company.id}}">Инфо</a>
                 </td>
             </tr>
             </tbody>
         </table>
         <br>
-        <a href="/course/">Курсы</a>
+        <h3 class="company_link"><a href="/course/">Курсы</a></h3>
     </div>
 </div>
 

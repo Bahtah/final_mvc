@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Курсы</title>
+    <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
 
-        <div sec:authorize="isAuthenticated()">
-            Добро пожаловать <b><span sec:authentication="name"></span></b>
+        <div class="autoris" sec:authorize="isAuthenticated()">
+            <h1>Добро пожаловать</h1> <span sec:authentication="name"></span>
             <i><span sec:authenticated="principal.authorities">Role</span></i>
         </div>
         <br>
@@ -19,8 +20,9 @@
             <input type="submit" value="Выйти">
         </form>
 
-        <h1>Курсы</h1>
-        <a href="/course/new">Создать курс</a>
+        <h1 class="course_title">Курсы</h1>
+        <hr>
+        <h3 class="course_link"><a href="/course/new">Создать курс</a></h3>
         <br>
         <br>
         <table border="1" cellpadding="10">
@@ -29,6 +31,7 @@
                 <th>ID</th>
                 <th>Название</th>
                 <th>Продолжительность</th>
+                <th>Компания</th>
                 <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Операции</th>
             </tr>
             </thead>
@@ -37,6 +40,7 @@
                 <td th:text="${course.id}">ID</td>
                 <td th:text="${course.courseName}"></td>
                 <td th:text="${course.duration}"></td>
+                <td th:text="${course.company.getName()}"></td>
                 <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
                     <a th:href="@{'course/edit/'+${course.id}}">Редактировать</a>
                     <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'course/delete/'+${course.id}}">Удалить</a>
@@ -45,6 +49,7 @@
             </tbody>
         </table>
         <br>
+        <h3 class="course_link"><a href="/">Компании</a></h3>
     </div>
 </div>
 

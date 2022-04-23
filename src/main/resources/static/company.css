@@ -1,0 +1,32 @@
+body {
+    background-color: #331e03;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.autoris span{
+    font-size: 22px;
+    color: #c55d5d;
+    font-weight: bold;
+}
+
+.autoris h1 {
+    color: #c55d5d;
+}
+
+table {
+    background-color: #fff;
+}
+
+.company_title {
+    color: #fff;
+}
+
+.company_link a {
+    color: #9898e0;
+    text-transform: uppercase;
+    text-decoration: none;
+}
