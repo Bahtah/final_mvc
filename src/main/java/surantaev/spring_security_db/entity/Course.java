@@ -33,7 +33,7 @@ public class Course {
 
     //Связь с таблицой Group
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    @ManyToMany/*(mappedBy = "courses", fetch = FetchType.LAZY)*/
     private List<Group> groups;
 
     //Связь с таблицой Teacher

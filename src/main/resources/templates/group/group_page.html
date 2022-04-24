@@ -3,8 +3,8 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Company</title>
-    <link rel="stylesheet" th:href="@{/company.css}" />
+    <title>Группы</title>
+    <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
 
@@ -15,15 +15,14 @@
             <h1>Добро пожаловать</h1> <span sec:authentication="name"></span>
             <i><span sec:authenticated="principal.authorities">Role</span></i>
         </div>
-
         <br>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Выйти">
         </form>
 
-        <h1 class="company_title">Компании</h1>
+        <h1 class="course_title">Группы</h1>
         <hr>
-        <h3 class="company_link"><a href="/new">Создать Компанию</a></h3>
+        <h3 class="course_link"><a href="/group/new">Создать группу</a></h3>
         <br>
         <br>
         <table border="1" cellpadding="10">
@@ -31,23 +30,28 @@
             <tr>
                 <th>ID</th>
                 <th>Название</th>
-                <th>Локация</th>
+                <th>Начало группы</th>
+                <th>Конец группы</th>
+                <th>Курсы</th>
                 <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Операции</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="company: ${company}">
-                <td th:text="${company.id}">ID</td>
-                <td th:text="${company.name}">Name</td>
-                <td th:text="${company.locatedCountry}">Location</td>
+            <tr th:each="group: ${group}">
+                <td th:text="${group.id}">ID</td>
+                <td th:text="${group.groupName}"></td>
+                <td th:text="${group.dateOfStart}"></td>
+                <td th:text="${group.dateOfFinish}"></td>
+                <td th:text="${group.courses}"></td>
                 <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
-                    <a th:href="@{'/edit/'+${company.id}}">Редактировать</a>
-                    <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/delete/'+${company.id}}">Удалить</a>
+                    <a th:href="@{'group/edit/'+${group.id}}">Редактировать</a>
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'group/delete/'+${group.id}}">Удалить</a>
                 </td>
             </tr>
             </tbody>
         </table>
         <br>
+        <h3 class="course_link"><a href="/">Компании</a></h3>
         <h3 class="company_link"><a href="/course/">Курсы</a></h3>
     </div>
 </div>

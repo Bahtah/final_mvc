@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать группу</title>
+</head>
+<body>
+
+<div class="container">
+    <div align="center">
+        <h1>Редактировать группу</h1>
+        <br>
+        <form action="#" th:action="@{/group/edit}" th:object="${group1}" th:method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <!--<td>Course Id</td>-->
+                    <td><input type="text" th:field="*{id}" hidden readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Название</td>
+                    <td><input type="text" th:field="*{groupName}"></td>
+                </tr>
+                <tr>
+                    <td>Старт</td>
+                    <td><input type="text" th:field="*{dateOfStart}"></td>
+                </tr>
+                <tr>
+                    <td>Финиш</td>
+                    <td><input type="text" th:field="*{dateOfFinish}"></td>
+                </tr>
+                <tr>
+                    <td>Курс id</td>
+                    <td><input type="text" th:field="*{courses}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

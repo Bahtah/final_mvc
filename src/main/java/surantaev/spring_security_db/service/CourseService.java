@@ -2,9 +2,7 @@ package surantaev.spring_security_db.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import surantaev.spring_security_db.entity.Company;
 import surantaev.spring_security_db.entity.Course;
-import surantaev.spring_security_db.repo.CompanyRepository;
 import surantaev.spring_security_db.repo.CourseRepository;
 
 import java.util.List;
