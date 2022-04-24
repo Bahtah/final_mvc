@@ -2,13 +2,14 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Course</title>
+    <title>Редактировать курс</title>
+    <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
-        <h1>Edit Course</h1>
+        <h1 class="course_title">Редактировать курс</h1>
         <br>
         <form action="#" th:action="@{/course/edit}" th:object="${course1}" th:method="post">
             <table border="0" cellpadding="10">

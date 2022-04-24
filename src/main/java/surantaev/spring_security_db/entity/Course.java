@@ -38,6 +38,6 @@ public class Course {
 
     //Связь с таблицой Teacher
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToOne(mappedBy = "course")
+    @OneToOne/*(mappedBy = "course")*/
     private Teacher teacher;
 }

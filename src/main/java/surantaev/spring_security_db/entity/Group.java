@@ -37,6 +37,6 @@ public class Group {
 
     //Связь с таблицой Student
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany/*(mappedBy = "group")*/
     private List<Student> students;
 }

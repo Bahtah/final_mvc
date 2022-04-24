@@ -2,19 +2,20 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Company</title>
+    <title>Редактировать компанию</title>
+    <link rel="stylesheet" th:href="@{/company.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
-        <h1>Edit Product</h1>
+        <h1 class="company_title">Редактировать компанию</h1>
         <br>
         <form action="#" th:action="@{/company-update}" th:object="${company}" method="post">
             <table border="0" cellpadding="10">
                 <tr>
-                    <td>Company Id</td>
-                    <td><input type="number" th:field="*{id}" readonly="readonly"></td>
+                   <!-- <td>Company Id</td>-->
+                    <td><input type="number" th:field="*{id}" hidden readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td>Company Name</td>

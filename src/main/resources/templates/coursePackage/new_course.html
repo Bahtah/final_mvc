@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Добавить Курс</title>
+    <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
-        <h1>Создать новый курс</h1>
+        <h1 class="course_title">Создать новый курс</h1>
         <br>
         <form action="#" th:action="@{course/save}" th:object="${course}" method="post">
             <table border="0" cellpadding="10">

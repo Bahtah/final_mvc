@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 body {
     background-color: #331e03;
 }
@@ -15,14 +17,27 @@ body {
 
 .autoris h1 {
     color: #fff;
+    font-family: 'Bangers', cursive;
 }
 
 table {
-    background-color: #fff;
+    background-color: #f3ecec;
+    color: #e00303;
+    text-transform: capitalize;
+}
+
+table th {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .course_title {
     color: #fff;
+}
+
+.course_link a:hover{
+    color: #fff
 }
 
 .course_link a {

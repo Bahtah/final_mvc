@@ -24,7 +24,7 @@ public class GroupController {
     }
 
     @GetMapping("/new")
-    public String showNewPage(Model model) {
+    public String showNewGroup(Model model) {
         Group group = new Group();
         model.addAttribute("group", group);
         return "group/new_group";
@@ -37,7 +37,7 @@ public class GroupController {
     }
 
     @GetMapping("group/edit/{id}")
-    public String showEditPage(@PathVariable("id") Long id, Model model) {
+    public String showEditGroup(@PathVariable("id") Long id, Model model) {
         Group group = groupService.getById(id);
         model.addAttribute("group1", group);
         return "group/edit_group";

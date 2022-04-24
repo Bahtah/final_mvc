@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Курсы</title>
+    <title>Преподаватели</title>
     <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
@@ -20,36 +20,39 @@
             <input type="submit" value="Выйти">
         </form>
 
-        <h1 class="course_title">Курсы</h1>
+        <h1 class="course_title">Преподаватели</h1>
         <hr>
-        <h3 class="course_link"><a href="/course/new">Создать курс</a></h3>
+        <h3 class="course_link"><a href="/teacher/new">Создать преподавателя</a></h3>
         <br>
         <br>
         <table border="1" cellpadding="10">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Название</th>
-                <th>Продолжительность</th>
-                <th>Компания</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>email</th>
+                <th>Курс</th>
                 <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Операции</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="course: ${course}">
-                <td th:text="${course.id}">ID</td>
-                <td th:text="${course.courseName}"></td>
-                <td th:text="${course.duration}"></td>
-                <td th:text="${course.company.getName()}"></td>
+            <tr th:each="teacher: ${teacher}">
+                <td th:text="${teacher.id}">ID</td>
+                <td th:text="${teacher.firstName}"></td>
+                <td th:text="${teacher.lastName}"></td>
+                <td th:text="${teacher.email}"></td>
+                <td th:text="${teacher.course.getCourseName()}"></td>
                 <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
-                    <div class="course_link"><a th:href="@{'course/edit/'+${course.id}}">Редактировать</a></div>
-                    <div class="course_link"><a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'course/delete/'+${course.id}}">Удалить</a></div>
+                    <div class="course_link"><a th:href="@{'teacher/edit/'+${teacher.id}}">Редактировать</a></div>
+                    <div class="course_link"><a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'teacher/delete/'+${teacher.id}}">Удалить</a></div>
                 </td>
             </tr>
             </tbody>
         </table>
         <br>
         <h3 class="course_link"><a href="/">Компании</a></h3>
+        <h3 class="course_link"><a href="/course/">Курсы</a></h3>
         <h3 class="course_link"><a href="/group/">Группы</a></h3>
     </div>
 </div>

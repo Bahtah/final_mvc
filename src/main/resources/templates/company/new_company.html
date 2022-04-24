@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>New Company</title>
+    <link rel="stylesheet" th:href="@{/company.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
-        <h1>Create new Company</h1>
+        <h1 class="company_title">Создать новую компанию</h1>
         <br>
         <form action="#" th:action="@{company/save}" th:object="${company}" method="post">
             <table border="0" cellpadding="10">

@@ -2,36 +2,36 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Редактировать группу</title>
+    <title>Редактировать преподаватели</title>
     <link rel="stylesheet" th:href="@{/course.css}" />
 </head>
 <body>
 
 <div class="container">
     <div align="center">
-        <h1 class="course_title">Редактировать группу</h1>
+        <h1 class="course_title">Редактировать преподаватели</h1>
         <br>
-        <form action="#" th:action="@{/group/edit}" th:object="${group1}" th:method="post">
+        <form action="#" th:action="@{/teacher/edit}" th:object="${teacher1}" th:method="post">
             <table border="0" cellpadding="10">
                 <tr>
                     <!--<td>Course Id</td>-->
                     <td><input type="text" th:field="*{id}" hidden readonly="readonly"></td>
                 </tr>
                 <tr>
-                    <td>Название</td>
-                    <td><input type="text" th:field="*{groupName}"></td>
+                    <td>Имя</td>
+                    <td><input type="text" th:field="*{firstName}"></td>
                 </tr>
                 <tr>
-                    <td>Старт</td>
-                    <td><input type="text" th:field="*{dateOfStart}"></td>
+                    <td>Фамилия</td>
+                    <td><input type="text" th:field="*{lastName}"></td>
                 </tr>
                 <tr>
-                    <td>Финиш</td>
-                    <td><input type="text" th:field="*{dateOfFinish}"></td>
+                    <td>Email</td>
+                    <td><input type="text" th:field="*{email}"></td>
                 </tr>
                 <tr>
-                    <td>Курс id</td>
-                    <td><input type="text" th:field="*{courses}"></td>
+                    <td>Группа id</td>
+                    <td><input type="text" th:field="*{course}"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="submit">Save</button></td>
