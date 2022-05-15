@@ -13,15 +13,16 @@
 
         <div class="autoris" sec:authorize="isAuthenticated()">
             <h1>Добро пожаловать</h1> <span sec:authentication="name"></span>
-            <i><span sec:authenticated="principal.authorities">Role</span></i>
+            <i><span sec:authentication="principal.authorities">Role</span></i>
         </div>
-
         <br>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Выйти">
         </form>
 
         <h1 class="company_title">Компании</h1>
+        <img th:src="@{image/ww.png}" alt="flag">
+
         <hr>
         <h3 class="company_link"><a href="/new">Создать Компанию</a></h3>
         <br>
@@ -30,7 +31,7 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Название</th>
+                <th th:href="@{fa-brands fa-bitbucket}">Название</th>
                 <th>Локация</th>
                 <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Операции</th>
             </tr>
@@ -52,5 +53,7 @@
     </div>
 </div>
 
+
+<script src="https://kit.fontawesome.com/8c9a86bb80.js" crossorigin="anonymous"></script>
 </body>
 </html>

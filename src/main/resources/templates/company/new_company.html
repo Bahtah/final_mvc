@@ -2,7 +2,7 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Company</title>
+    <title>Создать компанию</title>
     <link rel="stylesheet" th:href="@{/company.css}" />
 </head>
 <body>
@@ -14,15 +14,15 @@
         <form action="#" th:action="@{company/save}" th:object="${company}" method="post">
             <table border="0" cellpadding="10">
                 <tr>
-                    <td>Company Name</td>
+                    <td>Название</td>
                     <td><input type="text" required th:field="*{name}"></td>
                 </tr>
                 <tr>
-                    <td>Location</td>
+                    <td>Локация</td>
                     <td><input type="text" required th:field="*{locatedCountry}"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="submit">Save</button></td>
+                    <td colspan="2"><button type="submit">Сохранить</button></td>
                 </tr>
             </table>
         </form>

@@ -40,4 +40,9 @@ public class Course {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToOne/*(mappedBy = "course")*/
     private Teacher teacher;
+
+    @Override
+    public String toString() {
+        return courseName;
+    }
 }

@@ -13,7 +13,7 @@
 
         <div class="autoris" sec:authorize="isAuthenticated()">
             <h1>Добро пожаловать</h1> <span sec:authentication="name"></span>
-            <i><span sec:authenticated="principal.authorities">Role</span></i>
+            <i><span sec:authentication="principal.authorities">Role</span></i>
         </div>
         <br>
         <form th:action="@{/logout}" method="post">

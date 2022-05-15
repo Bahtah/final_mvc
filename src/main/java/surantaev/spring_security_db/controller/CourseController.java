@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import surantaev.spring_security_db.entity.Company;
 import surantaev.spring_security_db.entity.Course;
-import surantaev.spring_security_db.service.CompanyService;
 import surantaev.spring_security_db.service.CourseService;
 
 import java.util.List;
@@ -57,4 +54,5 @@ public class CourseController {
         courseService.delete(id);
         return "redirect:/course/";
     }
+
 }
